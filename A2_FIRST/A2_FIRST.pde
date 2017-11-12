@@ -54,7 +54,6 @@ void draw()
   
   //This makes the sound move across the grid and makes the selected squares
   //play sounds.
- 
   if(frameCount%15==1) 
     {
       t=(t+1)%16;
