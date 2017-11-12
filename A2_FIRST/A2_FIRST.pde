@@ -12,14 +12,14 @@ Depending on which square in the grid the user selects, a different sound is pla
 *****************************************************************************************
 */
 
-import processing.sound.*; //importing Processing's sound feature
+import processing.sound.*; //Importing Processing's sound feature so that sound can be played.
 
 SinOsc sin;
 
-int spacing= 50;
+int spacing= 50; //Establishing the size of the grid and the dimensions of the squares that make it up.
 int t;
 
-float [] freqs; //Array of frequencies
+float [] freqs; //Array of frequencies.
 boolean [][] selected;
 
 void setup ()
@@ -58,7 +58,7 @@ void draw()
   if(frameCount%15==1) 
     {
       t=(t+1)%16;
-      sin.stop(); //makes the sound stop once the note has been "played", creating short sounds.
+      sin.stop(); //Makes the sound stop once the note has been "played", creating short sounds.
   
   //This makes established what squares should be playing what sounds- or links the 
   //squares to the array of frequencies established above.
@@ -66,7 +66,7 @@ void draw()
     {
       if(selected[t][j]) 
       { 
-      sin.freq(freqs[j]);  //makes the different frequencies play, to produce different sounds
+      sin.freq(freqs[j]);  //makes the different frequencies play, to produce different sounds.
       sin.play();
       }
     }
@@ -78,7 +78,7 @@ void draw()
       for (int j = 0; j<5; j++)
       {
         if(selected[i][j]) fill(150,150,255);
-        else fill(255); // Differentiating the unclicked squares from the clicked squares by making them a differnet colour.
+        else fill(255); // Differentiating the unclicked squares from the clicked squares by making them a differnet colours.
         
         if(i==t) fill(255,0,0);
       
@@ -92,7 +92,7 @@ void draw()
   //Once the mouse is clicked, causes the selected squares to change colour.  
   void mousePressed()
 {
-    int eye = mouseX/spacing;
-    int eye1= mouseY/spacing;
+    int eye = mouseX/spacing; //Referring to the mouse clicking on the X axis.
+    int eye1= mouseY/spacing; //Referring to the mouse clicking on the Y axis.
     if(eye>-1 && eye<selected.length && eye1>-1 && eye1<selected.length) selected[eye][eye1]=!selected[eye][eye1];
 }  
